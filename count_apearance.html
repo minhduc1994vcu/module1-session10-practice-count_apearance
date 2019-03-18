@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function display_arr(arr) {
+        for (let i = 0; i < 100; i++) {
+            arr[i] = Math.floor(Math.random() * 101);
+            if (i % 10 === 9) {
+                arr[i] += "<br>";
+            }
+        }
+        return document.write(arr.join(" "));
+    }
+
+    let arr = [];
+    display_arr(arr);
+
+    function check(num) {
+        let check_num = false;
+        for (let i = 0; i < 100; i++) {
+            if (arr[i] === num) {
+                check_num = true;
+            }
+        }
+        return check_num;
+    }
+
+    function count(arr, num) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === num) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    function position(arr, num) {
+        let arr2 = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === num) {
+                arr2.push(i);
+            }
+        }
+        return arr2;
+    }
+
+    if (check(10)) {
+        if (count(arr, 10) > 1) {
+            document.write("the number 10 was found " + count(arr, 10) + " times. At position " + position(arr, 10));
+        } else if (count(arr, 10) === 1) {
+            document.write("the number 10 was found " + count(arr, 10) + " time. At position " + position(arr, 10));
+        }
+
+    } else alert("the number was not found")
+
+</script>
+</body>
+</html>
